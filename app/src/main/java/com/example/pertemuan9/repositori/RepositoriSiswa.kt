@@ -1,17 +1,20 @@
 package com.example.pertemuan9.repositori
 
-interface RepositoriSiswa {
-    fun getAllSiswaStream(): Flow<List<Siswa>
+import com.example.pertemuan9.room.Siswa
+import com.example.pertemuan9.room.SiswaDao
+import kotlinx.coroutines.flow.Flow
 
-    suspend fun insertSiswa(siswa : Siswa)
+interface RepositoriSiswa{
 
+    fun getAllSiswaStream(): Flow<List<Siswa>>
+
+    suspend fun insertSiswa(siswa: Siswa)
 }
 
 class OfflineRepositoriSiswa(
     private val siswaDao: SiswaDao
-): RepositoriSiswa {
-    override fun getAllSiswaStream(): Flow<List<Siswa> = siswaDao
-        .getAllSiswa
-    override suspend fun  insertSiswa(siswa : Siswa) = siswaDao
-        .insert(siswa)
+) : RepositoriSiswa {
+    override fun getAllSiswaStream(): Flow<List<Siswa>> = siswaDao.getAllSiswa()
+
+    override suspend fun insertSiswa(siswa: Siswa) = siswaDao.insert(siswa)
 }
