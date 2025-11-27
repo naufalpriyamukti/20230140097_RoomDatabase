@@ -1,5 +1,7 @@
 package com.example.pertemuan9.repositori
 
+import android.app.Application
+import android.content.Context
 import com.example.pertemuan9.room.DatabaseSiswa
 
 interface ContainerApp {
@@ -13,3 +15,18 @@ class ContainerDataApp(private val context: Context):
                     siswaDao = DatabaseSiswa.getDatabase(context).siswaDao())
             }
         }
+
+class AplikasiSiswa : Application() {
+    /**
+     * AppContainer instace digunakan oleh kelas-kelas lain
+     * untuk mendapatkan depedensi
+     */
+
+    lateinit var container: ContainerApp
+
+    override fun onCreate(){
+        super.onCreate()
+        container = ContainerDataApp(this)
+    }
+
+}
