@@ -1,8 +1,11 @@
 package com.example.pertemuan9.view.route
 
-object DestinasiEntry : DestinasiNavigasi{
 
+
+import com.example.pertemuan9.view.route.DestinasiNavigasi
+import com.example.roomdatabase.R
+
+object DestinasiEntry: DestinasiNavigasi {
     override val route = "item_entry"
-
-    override val tittleRes = R.string.
+    override val titleRes = R.string.entry_siswa
 }

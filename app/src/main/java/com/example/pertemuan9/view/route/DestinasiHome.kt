@@ -1,9 +1,10 @@
 package com.example.pertemuan9.view.route
 
 import com.example.pertemuan9.R
+import com.example.pertemuan9.view.route.DestinasiNavigasi
 
-object DestinasiHome : DestinasiNavigasi{
-    overide val route = "home"
-
-    override val tittleRes = R.string.app_name
+// PERBAIKAN: Tambahkan pewarisan dari interface DestinasiNavigasi
+object DestinasiHome : DestinasiNavigasi {
+    override val route = "home"
+    override val titleRes = R.string.app_name
 }
