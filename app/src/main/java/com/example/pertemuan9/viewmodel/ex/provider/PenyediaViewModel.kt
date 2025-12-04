@@ -8,6 +8,8 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.pertemuan9.repositori.AplikasiSiswa
 import com.example.pertemuan9.viewmodel.ex.HomeViewModel
 import com.example.pertemuan9.viewmodel.ex.EntryViewModel
+import com.example.pertemuan9.viewmodel.ex.DetailViewModel
+
 
 object PenyediaViewModel{
     val Factory = viewModelFactory {
@@ -17,11 +19,9 @@ object PenyediaViewModel{
         initializer {
             EntryViewModel(aplikasiSiswa().container.repositoriSiswa)
         }
-        //edit: Tambah initializer untuk data viewmodel
         initializer {
-            DetailViewModel(this.createSavedStateHandle(),aplikasiSiswa().container.repositoriSiswa)
+            DetailViewModel(this.createSavedStateHandle(), aplikasiSiswa().container.repositoriSiswa)
         }
-
     }
 }
 
@@ -32,5 +32,4 @@ object PenyediaViewModel{
 
 fun CreationExtras.aplikasiSiswa(): AplikasiSiswa =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiSiswa)
-
 
