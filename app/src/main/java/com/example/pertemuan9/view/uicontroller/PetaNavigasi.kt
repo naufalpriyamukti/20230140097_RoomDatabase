@@ -9,8 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pertemuan9.view.EntrySiswaScreen
 import com.example.pertemuan9.view.HomeScreen
+import com.example.pertemuan9.view.route.DestinasiDetailSiswa
 import com.example.pertemuan9.view.route.DestinasiHome
-import com.example.pertemuan9view.route.DestinasiEntry
+import com.example.pertemuan9.view.route.DestinasiEntry
 
 @Composable
 fun SiswaApp(navController: NavHostController= rememberNavController(), modifier: Modifier){
@@ -28,6 +29,11 @@ fun HostNavigasi(
         composable(DestinasiHome.route){
             HomeScreen(
                 navigateToItemEntry = {navController.navigate(DestinasiEntry.route)},
+
+                //edit1 : tambahkan parameter navigatetoTeItemUpdate
+                navigateToItemUpdate = {
+                    navController.navigate("${DestinasiDetailSiswa.route}/$(it)")}
+                }
             )
         }
         composable(DestinasiEntry.route){
