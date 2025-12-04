@@ -11,9 +11,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import com.example.pertemuan9.view.DetailSiswaScreen
 import com.example.pertemuan9.view.EntrySiswaScreen
 import com.example.pertemuan9.view.HomeScreen
 import com.example.pertemuan9.view.route.DestinasiDetailSiswa
+import com.example.pertemuan9.view.route.DestinasiDetailSiswa.itemIdArg
 import com.example.pertemuan9.view.route.DestinasiHome
 import com.example.pertemuan9.view.route.DestinasiEntry
 import com.example.pertemuan9.viewmodel.ex.DetailSiswa
@@ -31,41 +33,40 @@ fun HostNavigasi(
 ){
     NavHost(navController=navController, startDestination = DestinasiHome.route, modifier = Modifier)
     {
-        composable(DestinasiHome.route){
+        composable(DestinasiHome.route) {
             HomeScreen(
-                navigateToItemEntry = {navController.navigate(DestinasiEntry.route)},
-
-                //edit1 : tambahkan parameter navigatetoTeItemUpdate
+                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
                 navigateToItemUpdate = {
-                    navController.navigate("${DestinasiDetailSiswa.route}/$(it)")}
-                )
-
+                    navController.navigate("${DestinasiDetailSiswa.route}/${it}")
+                }
             )
         }
-        composable(DestinasiEntry.route){
-            EntrySiswaScreen(navigateBack = { navController.popBackStack()})
+        composable(DestinasiEntry.route) {
+            EntrySiswaScreen(navigateBack = { navController.popBackStack() })
         }
 
-        //edit2 : tambahkan composable route
-
-        composable(route = DestinasiDetailSiswa.routeWithArgs,
-            arguments = listOf(navArgument(itemIdArg) {
+        composable(
+            route = DestinasiDetailSiswa.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiDetailSiswa.itemIdArg) {
                 type = NavType.IntType
             })
-        ){
-            DetailSiswa(
-                //navigateToEditItem = {navController.navigate("$(DestinasiEditSiswa.route}/$it")},
-                navigateBack = { navController.navigateUp() })
+        ) {
+            DetailSiswaScreen(
+                //navigateToEditItem = { navController.navigate("${DestinasiEditSiswa.route}/$it") },
+                navigateBack = { navController.navigateUp() }
             )
         }
-        composable(route=DestinationEditSiswa.routeWithArgs,
-            arguments = listOf(navArgument(DestinasiEditSiswa.itemIdArg){
-                type= NavType.IntType })){
+        composable(
+            route = DestinasiEditSiswa.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiEditSiswa.itemIdArg) {
+                type = NavType.IntType
+            })
+        ) {
             EditSiswaScreen(
-                navigateBack = { navController.popBackStack()},
-                onNavigateUp = { navController.navigateUp()}
+                navigateBack = { navController.popBackStack() },
+                onNavigateUp = { navController.navigateUp() }
             )
         }
-
     }
 }
+
