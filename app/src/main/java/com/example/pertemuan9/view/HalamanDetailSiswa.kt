@@ -1,6 +1,5 @@
 package com.example.pertemuan9.view
 
-
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,10 +37,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertemuan9.R
 import com.example.pertemuan9.room.Siswa
 import com.example.pertemuan9.view.route.DestinasiDetailSiswa
-import com.example.pertemuan9.viewmodel.DetailSiswaUiState
-import com.example.pertemuan9.viewmodel.DetailViewModel
-import com.example.pertemuan9.viewmodel.provider.PenyediaViewModel
-import com.example.pertemuan9.viewmodel.toSiswa
+import com.example.pertemuan9.viewmodel.ex.DetailSiswaUiState
+import com.example.pertemuan9.viewmodel.ex.DetailViewModel
+import com.example.pertemuan9.viewmodel.ex.provider.PenyediaViewModel
+import com.example.pertemuan9.viewmodel.ex.toSiswa
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
