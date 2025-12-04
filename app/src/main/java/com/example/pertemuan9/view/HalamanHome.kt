@@ -36,7 +36,7 @@ import com.example.pertemuan9.room.Siswa
 import com.example.pertemuan9.view.route.DestinasiHome
 import com.example.pertemuan9.viewmodel.ex.HomeViewModel
 import com.example.pertemuan9.viewmodel.ex.provider.PenyediaViewModel
-import com.example.roomdatabase.R
+import com.example.pertemuan9.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,7 +51,7 @@ fun HomeScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             SiswaTopAppBar(
-                title = stringResource(DestinasiHome.tittleRes),
+                title = stringResource(DestinasiHome.titleRes),
                 canNavigateBack = false,
                 scrollBehavior = scrollBehavior
             )
@@ -106,6 +106,7 @@ fun BodyHome(
 @Composable
 fun ListSiswa(
     itemSiswa : List<Siswa>,
+    onSiswaClick: (Siswa) -> Unit,
     modifier: Modifier=Modifier
 ){
     LazyColumn(modifier = Modifier){
