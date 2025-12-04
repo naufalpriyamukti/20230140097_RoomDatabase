@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.stateIn
 
 class DetailViewModel (
     savedStateHandle: SavedStateHandle,
-    private val repositoriSiswa: RepositoriSiswa) : ViewModel(){
+    private val repositoriSiswa: RepositoriSiswa
+) : ViewModel(){
 
     private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
 

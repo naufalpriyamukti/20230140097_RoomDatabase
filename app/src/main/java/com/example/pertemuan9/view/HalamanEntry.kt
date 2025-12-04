@@ -24,12 +24,12 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.pertemuan9.viewmodel.DetailSiswa
-import com.example.pertemuan9.viewmodel.EntryViewModel
-import com.example.pertemuan9.viewmodel.UIStateSiswa
-import com.example.pertemuan9.viewmodel.provider.PenyediaViewModel
-import com.example.pertemuan9view.route.DestinasiEntry
+import com.example.pertemuan9.viewmodel.ex.DetailSiswa
+import com.example.pertemuan9.viewmodel.ex.EntryViewModel
+import com.example.pertemuan9.viewmodel.ex.UIStateSiswa
+import com.example.pertemuan9.viewmodel.ex.provider.PenyediaViewModel
 import com.example.pertemuan9.R
+import com.example.pertemuan9.view.route.DestinasiEntry
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
