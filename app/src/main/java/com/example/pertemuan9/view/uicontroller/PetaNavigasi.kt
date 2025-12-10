@@ -12,17 +12,20 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.example.pertemuan9.view.DetailSiswaScreen
+import com.example.pertemuan9.view.EditSiswaScreen
 import com.example.pertemuan9.view.EntrySiswaScreen
 import com.example.pertemuan9.view.HomeScreen
 import com.example.pertemuan9.view.route.DestinasiDetailSiswa
 import com.example.pertemuan9.view.route.DestinasiDetailSiswa.itemIdArg
+import com.example.pertemuan9.view.route.DestinasiEditSiswa
 import com.example.pertemuan9.view.route.DestinasiHome
 import com.example.pertemuan9.view.route.DestinasiEntry
 import com.example.pertemuan9.viewmodel.ex.DetailSiswa
 
+
 @Composable
-fun SiswaApp(navController: NavHostController= rememberNavController(), modifier: Modifier){
-    HostNavigasi(navController = navController)
+fun SiswaApp(navController: NavHostController = rememberNavController(), modifier: Modifier = Modifier) {
+    HostNavigasi(navController = navController, modifier = modifier)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,8 +33,12 @@ fun SiswaApp(navController: NavHostController= rememberNavController(), modifier
 fun HostNavigasi(
     navController: NavHostController,
     modifier: Modifier = Modifier
-){
-    NavHost(navController=navController, startDestination = DestinasiHome.route, modifier = Modifier)
+) {
+    NavHost(
+        navController = navController,
+        startDestination = DestinasiHome.route,
+        modifier = modifier
+    )
     {
         composable(DestinasiHome.route) {
             HomeScreen(
@@ -52,9 +59,8 @@ fun HostNavigasi(
             })
         ) {
             DetailSiswaScreen(
-                //navigateToEditItem = { navController.navigate("${DestinasiEditSiswa.route}/$it") },
-                navigateBack = { navController.navigateUp() }
-            )
+                navigateToEditItem = { navController.navigate("${DestinasiEditSiswa.route}/$it") },
+                navigateBack = { navController.navigateUp() })
         }
         composable(
             route = DestinasiEditSiswa.routeWithArgs,
@@ -69,4 +75,6 @@ fun HostNavigasi(
         }
     }
 }
+
+
 
